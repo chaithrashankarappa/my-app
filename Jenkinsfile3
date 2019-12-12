@@ -13,6 +13,22 @@ git branch: 'master',  url: 'https://github.com/macagua/example.java.helloworld.
      {
 
          echo "Build the code"
+         def buildMethod() {
+    println('mavenBuildMethod enter');
+  //  sh('mvn clean install package');
+    println('mavenBuildMethod exit');
+}
+container('maven')
+ {                
+ stage('Build Maven project')
+ {                  
+  // sh 'mvn clean install'               
+
+     function.buildMethod()             
+
+    }
+}
+
         // sh 'mvn --version'
  
 
