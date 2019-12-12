@@ -1,46 +1,39 @@
 node{
-  stage('Checkout')
-{
 
-
-
-git branch: 'master',  url: 'https://github.com/macagua/example.java.helloworld.git'
-
-  }
-
-  stage('Build')
-
-     {
-
-         echo "Build the code"
-         def buildMethod() {
-    println('mavenBuildMethod enter');
-  //  sh('mvn clean install package');
-    println('mavenBuildMethod exit');
-}
-container('maven')
- {                
- stage('Build Maven project')
- {                  
-  // sh 'mvn clean install'               
-
-     function.buildMethod()             
-
-    }
-}
-
-        // sh 'mvn --version'
  
 
-  }
-
-     stage('Test')
-
-     {
-
-         echo "Test the code"
-
-     }
-
+stage('Checkout')
+{
+git branch: 'master', url: 'https://github.com/macagua/example.java.helloworld.git' 
 }
 
+ 
+
+stage('Build')
+{
+echo "Build the code"
+
+ 
+
+container('maven')
+{
+stage('Build Maven project')
+{
+// sh 'mvn clean install'
+println('mavenBuildMethod enter');
+// sh('mvn clean install package');
+println('mavenBuildMethod exit');
+}
+}
+}
+
+ 
+
+stage('Test')
+{
+echo "Test the code"
+}
+
+ 
+
+}
