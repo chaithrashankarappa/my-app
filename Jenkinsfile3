@@ -1,0 +1,30 @@
+node{
+  stage('Checkout')
+{
+
+
+
+git branch: 'master',  url: 'https://github.com/macagua/example.java.helloworld.git'
+
+  }
+
+  stage('Build')
+
+     {
+
+         echo "Build the code"
+         sh ‘mvn --version’
+
+
+  }
+
+     stage('Test')
+
+     {
+
+         echo "Test the code"
+
+     }
+
+}
+
