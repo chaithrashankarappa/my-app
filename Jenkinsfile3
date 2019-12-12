@@ -13,7 +13,7 @@ git branch: 'master',  url: 'https://github.com/macagua/example.java.helloworld.
      {
 
          echo "Build the code"
-         sh ‘mvn --version’
+         sh 'mvn --version'
 
 
   }
